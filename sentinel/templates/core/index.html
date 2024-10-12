@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block header_title %}Accident Alerts{% endblock %}
+
+{% block extra_icons %}
+    <button onclick="toggleSidebar()" class="md:invisible text-center text-white text-2xl m-2">
+        <span id="notification" class="material-symbols-outlined">
+            notifications
+        </span>
+    </button>
+{% endblock %}
+
+{% block content %}
+<div id="sidebar" class="hidden w-full md:flex flex-col h-full md:w-64 bg-slate-500 dark:bg-gray-950 dark:text-white flex-shrink-0">
+    <div class="flex flex-col h-1/2 w-full">
+        <div class="flex w-full items-center justify-center flex-shrink-0 p-4">
+            <p class="text-xl font-bold font-mono underline text-gray-100">Alerts</p> <!-- Alerts Header -->
+        </div>
+        <div class="flex flex-col w-full h-full items-center py-4 gap-8 flex-shrink-1 overflow-y-auto">
+            <a href="" class="flex flex-row w-full text-xl font-bold font-mono p-2 px-6 items-center justify-between bg-red-100 dark:bg-red-800 text-gray-800 dark:text-white">
+                <p>Alert #1</p>
+                <div class="w-5 h-5 bg-red-500 dark:bg-red-200 rounded-full"></div> <!-- Emergency Indicator -->
+            </a>
+        </div>
+    </div>
+    <div class="justify-self-end flex flex-col-reverse h-1/2 w-full gap-3 overflow-y-auto">
+        
+        <div class="flex w-full h-20 bg-gray-700 dark:bg-gray-700 items-center justify-center flex-shrink-0">
+            <p class="text-xl font-bold font-mono text-white">Log Out</p> <!-- Log out -->
+        </div>
+    </div>
+</div>                   
+
+<div class="flex overflow-y-auto h-full w-full items-center justify-center bg-gray-50 dark:bg-gray-800">
+    <iframe class="w-full h-full dark:contrast-125 dark:invert dark:hue-rotate-180" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d38308.200231606665!2d72.97125163303227!3d19.16893293326235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1728764065426!5m2!1sen!2sin"></iframe> <!-- Map integration -->
+</div>
+<script>
+    function toggleSidebar() {
+        let sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("flex");
+        sidebar.classList.toggle("hidden");
+        let icon = document.getElementById('notification');
+        if (icon.innerText === 'notifications') {
+            icon.innerText = 'close';
+        } else {
+            icon.innerText = 'notifications';
+        }
+    }
+</script>
+
+{% endblock %}
