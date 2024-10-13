@@ -7,11 +7,11 @@ class Alert(models.Model):
     priority = models.TextField()
 
 class Media(models.Model):
-    alert = models.ForeignKey(Alert, on_delete="models.CASCADE", related_name="media")
+    alert = models.ForeignKey(Alert, on_delete=models.CASCADE, related_name="media")
     image = models.ImageField(upload_to="alert_images")
     video = models.FileField(upload_to="alert_vidoes")
 
 class Updates(models.Model):
-    alert = models.ForeignKey(Alert, on_delete="models.CASCADE", related_name="updates")
+    alert = models.ForeignKey(Alert, on_delete=models.CASCADE, related_name="updates")
     update = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
