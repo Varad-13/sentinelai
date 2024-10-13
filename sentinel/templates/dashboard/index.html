@@ -16,13 +16,15 @@
 <div id="sidebar" class="hidden w-full md:flex flex-col h-full md:w-64 bg-slate-500 dark:bg-gray-950 dark:text-white flex-shrink-0">
     <div class="flex flex-col h-1/2 w-full">
         <div class="flex w-full items-center justify-center flex-shrink-0 p-4">
-            <p class="text-xl font-bold font-mono underline text-gray-100">Alerts</p> <!-- Alerts Header -->
+            <p class="text-xl font-bold font-mono underline text-gray-100">Alerts</p>
         </div>
         <div class="flex flex-col w-full h-full items-center py-4 gap-8 flex-shrink-1 overflow-y-auto">
+            {% for alert in alerts %}
             <a href="" class="flex flex-row w-full text-xl font-bold font-mono p-2 px-6 items-center justify-between bg-red-100 dark:bg-red-800 text-gray-800 dark:text-white">
-                <p>Alert #1</p>
-                <div class="w-5 h-5 bg-red-500 dark:bg-red-200 rounded-full"></div> <!-- Emergency Indicator -->
+                <p>Alert #{{alert.id}}</p>
+                <div class="w-5 h-5 bg-red-500 dark:bg-red-200 rounded-full"></div>
             </a>
+            {% endfor %}
         </div>
     </div>
     <div class="justify-self-end flex flex-col-reverse h-1/2 w-full gap-3 overflow-y-auto">

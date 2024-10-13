@@ -3,6 +3,7 @@ from django.db import models
 class Alert(models.Model):
     id = models.AutoField(primary_key=True)
     type = models.TextField()
+    description = models.TextField()
     place = models.URLField()
     priority = models.TextField()
 
